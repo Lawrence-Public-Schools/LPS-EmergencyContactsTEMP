@@ -1,11 +1,11 @@
     <style>
-      a.LPSECT:link {
+      a.LPSECTA:link {
         color: red;
       }
-      a.LPSECT:visited {
+      a.LPSECTA:visited {
         color: red;
       }
-      a.LPSECT:hover {
+      a.LPSECTA:hover {
         color: red;
       }
       }
