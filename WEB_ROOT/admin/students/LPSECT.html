@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<!-- start right frame -->
+
+<head>
+    <title>EmergencyContactsTEMP</title>
+    ~[wc:UI_js_includes]
+    ~[wc:commonscripts]
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+    <link rel="stylesheet" type="text/css" href="/images/boxing.css">
+    <style>
+    .clickable {
+        cursor: pointer;
+    }
+    </style>
+    <script type="text/javascript">
+    var selectedAdapter = "~[displaypref:mappingadapter.selected]";
+    var mapKey = "~[x:selectedvalidationmappingadapterkey]";
+    var validateSucceeded = false;
+
+    function load() {
+        prepPage();
+        // If they don't select any of the visible options for ethnicity, choose "-1" for them ...
+        var defaultEthnicity = document.getElementById("defaultEthnicity");
+        if(defaultEthnicity) {
+            defaultEthnicity.value = "-1";
+        }
+    }
+    // Only let jQuery call validateInput once if it succeeds
+    // Multiple calls that return success(true) result in the unit number field being appended to the street address multiple times
+    function validateInputOnceOnly() {
+        if(!validateSucceeded) {
+            validateSucceeded = validateInput();
+        }
+        return validateSucceeded;
+    }
+    </script>
+    ~[x:renderboundaryobject]
+    ~[get_js_texts:psx.js.admin_validation.validationCommon.]
+    <script language="JavaScript" src="/admin/validation/validationCommon.js"></script>
+    <script language="JavaScript" src="/scripts/contact.js"></script>
+</head>
+
+<body>
+    ~[wc:admin_header_frame_css]
+    <!-- breadcrumb start -->
+    <a href="/admin/home.html" target="_top">
+        ~[text:psx.html.admin_students.generaldemographics.start_page]
+    </a> &gt; <a href="home.html?selectstudent=nosearch" target="_top">
+        ~[text:psx.html.admin_students.emergency.student_selection]
+    </a> &gt;EmergencyContactsTEMP
+    <!-- breadcrumb end -->
+    ~[wc:admin_navigation_frame_css]
+    ~[wc:title_student_begin_css]
+    <h1>EmergencyContactsTEMP</h1>
+    ~[wc:title_student_end_css]
+    <form action="/admin/changesrecorded.white.html" method="POST" onSubmit="return validateInputOnceOnly()">
+        <!-- Start of shaded content table and bounding box -->
+        <div class="box-round">
+            <table border="0" cellspacing="0" cellpadding="4" class="linkDescList">
+                <colgroup>
+                    <col style="width:20%">
+                        <col>
+                </colgroup>
+                <tr class="headerrow hidden">
+                    <td colspan="2" class="bold" style="text-align: center;">EmergencyContactsTEMP</td>
+                </tr>
+                <tr style="vertical-align: top;">
+                    <td colspan="2" class="bold" align="center" style="color: red; font-size: larger">TEMPORARY Emergency Contacts Page for edits, WILL BE REMOVED AND MIGRATED TO CONTACTS FOR NEXT SCHOOL YEAR</td>
+                </tr>
+                <tr>
+                    <td class="bold"> Emergency Contact #1</td>
+                    <td>
+                        <input name="[01]emerg_contact_1" type="text" id="emerg_contact_1" value="" size="25"> <b>Phone</b>
+                        <input name="[01]emerg_phone_1" type="text" id="emerg_phone_1" value="" size="17" onChange="ValidatePhoneNumber('~(JSFieldParam;[01]emerg_phone_1)');">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">Relationship</td>
+                    <td colspan="3"><select name="[01]emerg_1_rel" id="emerg_1_rel">
+                        <option value=" "></option>
+                        <option value="Mother">Mother</option>
+                        <option value="Father">Father</option>
+                        <option value="Grandmother">Grandmother</option>
+                        <option value="Grandfather">Grandfather</option>
+                        <option value="Sibling">Sibling</option>
+                        <option value="Step-Parent">Step-Parent</option>
+                        <option value="Foster-Parent">Foster-Parent</option>
+                        <option value="Aunt">Aunt</option>
+                        <option value="Uncle">Uncle</option>
+                        <option value="Cousin">Cousin</option>
+                        <option value="Social Worker">Social Worker</option>
+                        <option value="Legal Guardian">Legal Guardian</option>
+                        <option value="Self">Self</option>
+                        <option value="In-Law">In-Law</option>
+                        <option value="Husband">Husband</option>
+                        <option value="Wife">Wife</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Other">Other</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td class="bold">Emergency Contact #2</td>
+                    <td>
+                        <input name="[01]emerg_contact_2" type="text" id="emerg_contact_2" value="" size="25"> <b>Phone</b>
+                        <input name="[01]emerg_phone_2" type="text" id="emerg_phone_2" value="" size="17" onChange="ValidatePhoneNumber('~(JSFieldParam;[01]emerg_phone_2)');"></td>
+                </tr>
+                <tr>
+                    <td class="bold">&nbsp;Relationship</td>
+                    <td colspan="3"><select name="[01]emerg_2_rel" id="emerg_2_rel">
+                        <option value=" "></option>
+                        <option value="Mother">Mother</option>
+                        <option value="Father">Father</option>
+                        <option value="Grandmother">Grandmother</option>
+                        <option value="Grandfather">Grandfather</option>
+                        <option value="Sibling">Sibling</option>
+                        <option value="Step-Parent">Step-Parent</option>
+                        <option value="Foster-Parent">Foster-Parent</option>
+                        <option value="Aunt">Aunt</option>
+                        <option value="Uncle">Uncle</option>
+                        <option value="Cousin">Cousin</option>
+                        <option value="Social Worker">Social Worker</option>
+                        <option value="Legal Guardian">Legal Guardian</option>
+                        <option value="Self">Self</option>
+                        <option value="In-Law">In-Law</option>
+                        <option value="Husband">Husband</option>
+                        <option value="Wife">Wife</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Other">Other</option>
+                    </select></td>
+                </tr>
+            </table>
+        </div>
+        <div class="button-row">
+            <input type="hidden" name="ac" value="prim">
+            ~[if.ModAccess]<input type="submit" id="btnSubmit" name="btnSubmit" value="~[text:psx.html.admin_students.generaldemographics.submit]" onclick="contactFunctions.checkContactNameChanges('~(frn)', event);validateInputOnceOnly();">[/if]
+        </div>
+        <!-- End of shaded content table and bounding box -->~[wc:admin_footer_frame_css] </form>
+    <!-- End of shaded content table and bounding box -->
+</body>

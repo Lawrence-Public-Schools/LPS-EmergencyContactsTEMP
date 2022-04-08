@@ -1,0 +1,17 @@
+    <style>
+      a.LPSECTA:link {
+        color: red;
+      }
+      a.LPSECTA:visited {
+        color: red;
+      }
+      a.LPSECTA:hover {
+        color: red;
+      }
+      }
+    </style>
+<script type="text/javascript">
+$j(document).ready(function() {
+$j( "ul#std_information > li > a[href^='generaldemographics.html?frn=']" ).parent().after($j('<li ><a class="LPSECTA" href="LPSECT.html?frn=~(studentfrn)">ECTEMP &tilde;</a></li>'));
+});
+</script>
